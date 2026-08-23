@@ -52,7 +52,7 @@ a { color: var(--accent); text-decoration: none; }
   background: color-mix(in srgb, var(--bg) 88%, white);
   border-bottom: 1px solid var(--line);
 }
-.chrome img { width: 22px; height: 22px; border-radius: 5px; background: #fff; }
+.chrome img { width: 22px; height: 22px; border-radius: 0; background: transparent; object-fit: contain; }
 .chrome .hos { font-size: 13px; font-weight: 650; color: var(--text); letter-spacing: -0.02em; }
 .chrome .spacer { flex: 1; }
 .icon-btn {
@@ -130,9 +130,9 @@ a { color: var(--accent); text-decoration: none; }
     width: 40px;
     height: 40px;
     margin: 4px auto 16px;
-    border-radius: 10px;
-    object-fit: cover;
-    background: #fff;
+    border-radius: 0;
+    object-fit: contain;
+    background: transparent;
   }
   .tabbar { display: none; }
   .tabrail .tab {
@@ -544,7 +544,7 @@ a { color: var(--accent); text-decoration: none; }
   padding: 24px;
 }
 .onboard-card { width: min(400px, 100%); }
-.onboard-card img { width: 44px; height: 44px; border-radius: 10px; background: #fff; }
+.onboard-card img { width: 44px; height: 44px; border-radius: 0; background: transparent; object-fit: contain; }
 .onboard-card .kicker { font-size: 13px; color: var(--secondary); margin: 14px 0 4px; }
 .onboard-card h1 { margin: 0 0 6px; font-size: 28px; letter-spacing: -0.04em; }
 .onboard-card .lead { color: var(--secondary); margin: 0 0 22px; }

@@ -8,7 +8,9 @@ export function allPagers(user: UserProfile): PagerThread[] {
 }
 
 export function allThreads(user: UserProfile): ChatThread[] {
-  return [...personalizedMessages(user), ...MESSAGE_THREADS]
+  const personal = personalizedMessages(user)
+  const taken = new Set(personal.map((t) => t.staffId))
+  return [...personal, ...MESSAGE_THREADS.filter((t) => !taken.has(t.staffId))]
 }
 
 export function unreadPagerCount(user: UserProfile) {

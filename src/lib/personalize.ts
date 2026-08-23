@@ -1,4 +1,22 @@
 import { frequentConsult, relationTo, sameDept } from '@/lib/hierarchy'
+import {
+  binLine,
+  binReply,
+  chaeLine,
+  chaeReply,
+  eunsungLine,
+  eunsungReply,
+  harimLine,
+  harimReply,
+  jeongheeLine,
+  jeongheeReply,
+  jiwanLine,
+  jiwanReply,
+  sionLine,
+  sionReply,
+  yoonLine,
+  yoonReply,
+} from '@/lib/messageLines'
 import { staffById } from '@/data/staff'
 import type { ChatThread, PagerThread, UserProfile } from '@/types'
 
@@ -186,46 +204,88 @@ export function personalizedPagers(user: UserProfile): PagerThread[] {
 }
 
 export function personalizedMessages(user: UserProfile): ChatThread[] {
-  const threads: ChatThread[] = []
-  threads.push({
-    id: 'msg-u-harim',
-    staffId: 'park-harim',
-    lastSeen: '06:11',
-    personalized: true,
-    messages: [
-      { id: 'um2', at: '06:11:00', fromStaffId: 'park-harim', text: harimToUser(user) },
-      { id: 'um2b', at: '06:12:00', fromStaffId: 'user', text: '확인했습니다. OR는 잡지 않겠습니다.' },
-    ],
-  })
-  threads.push({
-    id: 'msg-u-bin',
-    staffId: 'kang-bin',
-    lastSeen: '06:40',
-    personalized: true,
-    messages: [
-      {
-        id: 'um1',
-        at: '06:06:00',
-        fromStaffId: 'kang-bin',
-        text:
-          user.departmentId === 'em'
-            ? `${user.name} 선생님. 대기 밀렸어요. 먼저 줄 서는 거 말고 바이탈.`
-            : binToUser(user),
-      },
-      { id: 'um1b', at: '06:07:00', fromStaffId: 'user', text: '지금 내려갑니다.' },
-    ],
-  })
-  threads.push({
-    id: 'msg-u-jh',
-    staffId: 'yoo-jeonghee',
-    lastSeen: '06:16',
-    personalized: true,
-    messages: [
-      { id: 'um4', at: '06:16:00', fromStaffId: 'yoo-jeonghee', text: jeongheeToUser(user) },
-      { id: 'um4b', at: '06:17:00', fromStaffId: 'user', text: '양식으로 올렸습니다.' },
-    ],
-  })
-  return threads
+  return [
+    {
+      id: 'msg-u-harim',
+      staffId: 'park-harim',
+      lastSeen: '06:11',
+      personalized: true,
+      messages: [
+        { id: 'um-h1', at: '06:11:00', fromStaffId: 'park-harim', text: harimLine(user) },
+        { id: 'um-h2', at: '06:12:00', fromStaffId: 'user', text: harimReply(user) },
+      ],
+    },
+    {
+      id: 'msg-u-bin',
+      staffId: 'kang-bin',
+      lastSeen: '06:40',
+      personalized: true,
+      messages: [
+        { id: 'um-b1', at: '06:06:00', fromStaffId: 'kang-bin', text: binLine(user) },
+        { id: 'um-b2', at: '06:07:00', fromStaffId: 'user', text: binReply(user) },
+      ],
+    },
+    {
+      id: 'msg-u-jh',
+      staffId: 'yoo-jeonghee',
+      lastSeen: '06:16',
+      personalized: true,
+      messages: [
+        { id: 'um-j1', at: '06:16:00', fromStaffId: 'yoo-jeonghee', text: jeongheeLine(user) },
+        { id: 'um-j2', at: '06:17:00', fromStaffId: 'user', text: jeongheeReply(user) },
+      ],
+    },
+    {
+      id: 'msg-u-jiwan',
+      staffId: 'kim-jiwan',
+      lastSeen: '06:14',
+      personalized: true,
+      messages: [
+        { id: 'um-w1', at: '06:13:00', fromStaffId: 'kim-jiwan', text: jiwanLine(user) },
+        { id: 'um-w2', at: '06:14:00', fromStaffId: 'user', text: jiwanReply(user) },
+      ],
+    },
+    {
+      id: 'msg-u-yoon',
+      staffId: 'oh-yoonkyung',
+      lastSeen: '06:05',
+      personalized: true,
+      messages: [
+        { id: 'um-y1', at: '06:04:00', fromStaffId: 'oh-yoonkyung', text: yoonLine(user) },
+        { id: 'um-y2', at: '06:05:00', fromStaffId: 'user', text: yoonReply(user) },
+      ],
+    },
+    {
+      id: 'msg-u-sion',
+      staffId: 'kim-sion',
+      lastSeen: '06:27',
+      personalized: true,
+      messages: [
+        { id: 'um-s1', at: '06:26:00', fromStaffId: 'kim-sion', text: sionLine(user) },
+        { id: 'um-s2', at: '06:27:00', fromStaffId: 'user', text: sionReply(user) },
+      ],
+    },
+    {
+      id: 'msg-u-es',
+      staffId: 'jeong-eunsung',
+      lastSeen: '05:57',
+      personalized: true,
+      messages: [
+        { id: 'um-e1', at: '05:55:00', fromStaffId: 'jeong-eunsung', text: eunsungLine(user) },
+        { id: 'um-e2', at: '05:56:00', fromStaffId: 'user', text: eunsungReply(user) },
+      ],
+    },
+    {
+      id: 'msg-u-ch',
+      staffId: 'lee-chaehyung',
+      lastSeen: '06:02',
+      personalized: true,
+      messages: [
+        { id: 'um-c1', at: '06:01:00', fromStaffId: 'lee-chaehyung', text: chaeLine(user) },
+        { id: 'um-c2', at: '06:02:00', fromStaffId: 'user', text: chaeReply(user) },
+      ],
+    },
+  ]
 }
 
 export function dashboardDutyLabel(user: UserProfile): string {
