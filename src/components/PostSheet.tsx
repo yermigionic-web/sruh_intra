@@ -1,6 +1,7 @@
 import { BOARD_POSTS } from '@/data/board'
 import { PROFILE_POSTS } from '@/data/profiles'
 import { hm } from '@/lib/time'
+import { asset } from '@/lib/asset'
 import { useApp } from '@/context'
 import { StaffName } from '@/components/StaffName'
 import { ZoomableImage } from '@/components/ZoomableImage'
@@ -33,7 +34,7 @@ export function PostSheet() {
               <ZoomableImage
                 className="zoom-hit post-hero-hit"
                 imgClassName="post-hero"
-                src={`/posts/${profilePost.id}.png`}
+                src={asset(`posts/${profilePost.id}.png`)}
                 alt={profilePost.alt ?? profilePost.caption ?? ''}
               />
               <p className="faint">{stamp(profilePost.at)}</p>

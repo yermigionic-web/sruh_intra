@@ -1,3 +1,4 @@
+import { asset } from '@/lib/asset'
 import type { RankId, Staff } from '@/types'
 
 function st(
@@ -19,6 +20,7 @@ function st(
     employeeNo: extra.employeeNo ?? `20${String(2010 + (60 - (age || 30))).slice(-2)}-${id.slice(0, 4).toUpperCase()}`,
     isMain: extra.isMain ?? false,
     ...extra,
+    photo: extra.photo ? asset(extra.photo) : extra.photo,
   }
 }
 

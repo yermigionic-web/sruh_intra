@@ -6,6 +6,7 @@ import { PROFILE_POSTS, RESPONSE_STATS, SCHEDULES } from '@/data/profiles'
 import { deptName } from '@/data/departments'
 import { displayTitle } from '@/data/staff'
 import { hm, isPast } from '@/lib/time'
+import { asset } from '@/lib/asset'
 import { useApp } from '@/context'
 import { Segmented } from '@/components/Segmented'
 import { ZoomableImage } from '@/components/ZoomableImage'
@@ -118,7 +119,7 @@ function Main({ staff }: { staff: Staff }) {
               key={p.id}
               className="post-cell"
               imgClassName="post-thumb"
-              src={`/posts/${p.id}.png`}
+              src={asset(`posts/${p.id}.png`)}
               alt={p.alt ?? p.caption ?? ''}
               onOpen={() => view(`post:${p.id}`)}
             />

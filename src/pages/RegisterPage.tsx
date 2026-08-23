@@ -3,6 +3,7 @@ import { APP_NAME, HOSPITAL_ADDRESS, HOSPITAL_NAME, HOSPITAL_NAME_EN, NAME_EXAMP
 import { SELECTABLE_DEPARTMENTS } from '@/data/departments'
 import { ranksForDepartment } from '@/data/ranks'
 import { rankLabel } from '@/lib/hierarchy'
+import { asset } from '@/lib/asset'
 import { useApp } from '@/context'
 import { requestThemePlay } from '@/components/ThemeAudio'
 import type { RankId } from '@/types'
@@ -17,7 +18,7 @@ export function RegisterPage() {
   return (
     <div className="onboard">
       <div className="onboard-card">
-        <img src="/sruhlogo.png" alt="" />
+        <img src={asset('sruhlogo.png')} alt="" />
         <div className="kicker">{HOSPITAL_NAME}</div>
         <h1>{STAFF_SERVICES}</h1>
         <p className="lead">직원 정보를 설정해 주세요.</p>

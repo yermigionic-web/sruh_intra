@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { HOSPITAL_NAME } from '@/brand'
 import { unreadInboxCount } from '@/lib/inbox'
+import { asset } from '@/lib/asset'
 import { useApp } from '@/context'
 import { IconBell, IconCal, IconHome, IconMore, IconMsg, IconPeople } from '@/components/Icons'
 import { ThemeToggle } from '@/components/ThemeAudio'
@@ -52,12 +53,12 @@ export function AppShell() {
     <div className="app">
       {desktop ? (
         <nav className="tabrail" aria-label="주요 메뉴">
-          <img className="brand-mark" src="/sruhlogo.png" alt="" />
+          <img className="brand-mark" src={asset('sruhlogo.png')} alt="" />
           {tabs}
         </nav>
       ) : null}
       <header className="chrome">
-        <img src="/sruhlogo.png" alt="" />
+        <img src={asset('sruhlogo.png')} alt="" />
         <span className="hos">{HOSPITAL_NAME}</span>
         <span className="spacer" />
         <ThemeToggle />
