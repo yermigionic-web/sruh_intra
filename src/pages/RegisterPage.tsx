@@ -4,6 +4,7 @@ import { SELECTABLE_DEPARTMENTS } from '@/data/departments'
 import { ranksForDepartment } from '@/data/ranks'
 import { rankLabel } from '@/lib/hierarchy'
 import { useApp } from '@/context'
+import { requestThemePlay } from '@/components/ThemeAudio'
 import type { RankId } from '@/types'
 
 export function RegisterPage() {
@@ -39,6 +40,7 @@ export function RegisterPage() {
               archiveHint: false,
               favoriteStaffIds: [],
             })
+            requestThemePlay()
           }}
         >
           <label>

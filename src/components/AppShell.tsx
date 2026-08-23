@@ -4,6 +4,7 @@ import { HOSPITAL_NAME } from '@/brand'
 import { unreadInboxCount } from '@/lib/inbox'
 import { useApp } from '@/context'
 import { IconBell, IconCal, IconHome, IconMore, IconMsg, IconPeople } from '@/components/Icons'
+import { ThemeToggle } from '@/components/ThemeAudio'
 import { ProfileSheet } from '@/components/ProfileSheet'
 import { NotifySheet } from '@/components/NotifySheet'
 import { PagerSheet } from '@/components/PagerSheet'
@@ -59,6 +60,7 @@ export function AppShell() {
         <img src="/sruhlogo.png" alt="" />
         <span className="hos">{HOSPITAL_NAME}</span>
         <span className="spacer" />
+        <ThemeToggle />
         <button className="icon-btn" onClick={openNotify} aria-label="알림">
           <IconBell />
           {unread > 0 ? <span className="dot">{unread > 9 ? '9+' : unread}</span> : null}

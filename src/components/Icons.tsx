@@ -78,3 +78,15 @@ export const IconSearch = (p: P) => (
     <path d="m20 20-3.5-3.5" />
   </I>
 )
+export const IconSound = (p: P) => (
+  <I {...p}>
+    <path d="M5 10v4h3l4 3V7L8 10H5z" />
+    <path d="M16 9.5a3.5 3.5 0 0 1 0 5M18.2 7.5a6 6 0 0 1 0 9" />
+  </I>
+)
+export const IconSoundOff = (p: P) => (
+  <I {...p}>
+    <path d="M5 10v4h3l4 3V7L8 10H5z" />
+    <path d="m16 10 5 5M21 10l-5 5" />
+  </I>
+)

@@ -411,6 +411,36 @@ a { color: var(--accent); text-decoration: none; }
   border-radius: 12px;
   background: #e5e5ea;
 }
+.post-hero-hit {
+  display: block;
+  width: 100%;
+}
+.zoom-hit {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  line-height: 0;
+}
+.zoom-hit .avatar-lg { display: block; }
+.post-cell { cursor: zoom-in; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  margin: 0;
+  background: #000;
+  display: grid;
+  place-items: center;
+  cursor: zoom-out;
+}
+.lightbox img {
+  max-width: 100vw;
+  max-height: 100dvh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
 .phimg {
   height: 70%;
   background: repeating-linear-gradient(-45deg, #ddd, #ddd 6px, #e8e8ed 6px, #e8e8ed 12px);

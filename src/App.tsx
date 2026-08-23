@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { useApp } from '@/context'
 import { AppShell } from '@/components/AppShell'
+import { ThemeEngine } from '@/components/ThemeAudio'
 import { RegisterPage } from '@/pages/RegisterPage'
 import { HomePage } from '@/pages/HomePage'
 import { MessagesHub, MessageThreadPage } from '@/pages/MessagesHub'
@@ -34,7 +35,9 @@ function Gate({ children }: { children: ReactNode }) {
 export function App() {
   const { profile } = useApp()
   return (
-    <Routes>
+    <>
+      <ThemeEngine enabled={!!profile} />
+      <Routes>
       <Route path="/register" element={profile ? <Navigate to="/" replace /> : <RegisterPage />} />
       <Route
         element={
@@ -74,5 +77,6 @@ export function App() {
       </Route>
       <Route path="*" element={<Navigate to={profile ? '/' : '/register'} replace />} />
     </Routes>
+    </>
   )
 }

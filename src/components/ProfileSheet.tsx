@@ -8,6 +8,7 @@ import { displayTitle } from '@/data/staff'
 import { hm, isPast } from '@/lib/time'
 import { useApp } from '@/context'
 import { Segmented } from '@/components/Segmented'
+import { ZoomableImage } from '@/components/ZoomableImage'
 import type { Staff } from '@/types'
 
 export function ProfileSheet() {
@@ -42,7 +43,7 @@ function Card({ staff }: { staff: Staff }) {
 }
 
 function Main({ staff }: { staff: Staff }) {
-  const { closeSheet, view, favorite, profile, openPost } = useApp()
+  const { closeSheet, view, favorite, profile } = useApp()
   const [tab, setTab] = useState<'posts' | 'schedule' | 'academic' | 'info'>('posts')
   const posts = PROFILE_POSTS.filter((p) => p.staffId === staff.id)
   const sched = SCHEDULES.filter((s) => s.staffId === staff.id)
@@ -69,7 +70,11 @@ function Main({ staff }: { staff: Staff }) {
         </div>
       </div>
       <div className="profile-hero">
-        {staff.photo ? <img className="avatar-lg" src={staff.photo} alt="" /> : <div className="avatar-lg" />}
+        {staff.photo ? (
+          <ZoomableImage imgClassName="avatar-lg" src={staff.photo} alt={`${staff.name} 프로필`} />
+        ) : (
+          <div className="avatar-lg" />
+        )}
         <h2>{staff.name}</h2>
         <div className="muted">
           {deptName(staff.departmentId)}
@@ -109,16 +114,14 @@ function Main({ staff }: { staff: Staff }) {
       {tab === 'posts' && (
         <div className="post-grid">
           {posts.map((p) => (
-            <button
+            <ZoomableImage
               key={p.id}
               className="post-cell"
-              onClick={() => {
-                view(`post:${p.id}`)
-                openPost(p.id)
-              }}
-            >
-              <img className="post-thumb" src={`/posts/${p.id}.png`} alt={p.alt ?? p.caption ?? ''} />
-            </button>
+              imgClassName="post-thumb"
+              src={`/posts/${p.id}.png`}
+              alt={p.alt ?? p.caption ?? ''}
+              onOpen={() => view(`post:${p.id}`)}
+            />
           ))}
         </div>
       )}

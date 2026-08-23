@@ -3,6 +3,7 @@ import { PROFILE_POSTS } from '@/data/profiles'
 import { hm } from '@/lib/time'
 import { useApp } from '@/context'
 import { StaffName } from '@/components/StaffName'
+import { ZoomableImage } from '@/components/ZoomableImage'
 
 function stamp(at: string) {
   return at.includes('T') ? at.replace('T', ' ').slice(0, 16) : hm(at)
@@ -29,8 +30,9 @@ export function PostSheet() {
         <div className="screen-body">
           {profilePost ? (
             <>
-              <img
-                className="post-hero"
+              <ZoomableImage
+                className="zoom-hit post-hero-hit"
+                imgClassName="post-hero"
                 src={`/posts/${profilePost.id}.png`}
                 alt={profilePost.alt ?? profilePost.caption ?? ''}
               />
