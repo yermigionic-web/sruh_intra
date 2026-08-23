@@ -117,8 +117,7 @@ function Main({ staff }: { staff: Staff }) {
                 openPost(p.id)
               }}
             >
-              <div className="phimg">{p.imageLabel}</div>
-              {p.caption || p.alt || '—'}
+              <img className="post-thumb" src={`/posts/${p.id}.png`} alt={p.alt ?? p.caption ?? ''} />
             </button>
           ))}
         </div>

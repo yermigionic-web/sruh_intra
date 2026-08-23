@@ -29,9 +29,11 @@ export function PostSheet() {
         <div className="screen-body">
           {profilePost ? (
             <>
-              <div className="phimg" style={{ height: 180, borderRadius: 12 }}>
-                {profilePost.alt ?? profilePost.imageLabel}
-              </div>
+              <img
+                className="post-hero"
+                src={`/posts/${profilePost.id}.png`}
+                alt={profilePost.alt ?? profilePost.caption ?? ''}
+              />
               <p className="faint">{stamp(profilePost.at)}</p>
               <p>{profilePost.caption || <span className="faint">캡션 없음</span>}</p>
               {profilePost.comments.map((c) => (
